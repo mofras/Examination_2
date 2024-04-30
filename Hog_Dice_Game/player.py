@@ -4,7 +4,7 @@ class Player:
         self.name = name
         self.score = 0
 
-    def rolle_dice(self, dice):
+    def roll_dice(self, dice):
         return dice.roll()
     
     def add_score(self, points):
