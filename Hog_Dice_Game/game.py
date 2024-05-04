@@ -15,7 +15,7 @@ class Game:
         self.players.append(Player(name))
     
     def add_computer(self, name):
-        self.players.(Computer(difficulty))
+        self.players.append(Computer(difficulty))
 
     def play_round(self):
 

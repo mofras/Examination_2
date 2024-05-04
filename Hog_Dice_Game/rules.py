@@ -4,4 +4,4 @@ class Rules:
         pass
     
     def display_rules(self):
-        pass
+        print("This hog dice game. ")
