@@ -13,6 +13,9 @@ class Game:
 
     def add_player(self, name):
         self.players.append(Player(name))
+    
+    def add_computer(self, name):
+        self.players.(Computer(difficulty))
 
     def play_round(self):
 
@@ -32,7 +35,7 @@ class Game:
                 player.add_score(roll_sum)
             if player.score >= self.target_score:
                 return True
-            return False
+        return False
 
     def get_num_dice(self, player):
         

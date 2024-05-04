@@ -20,7 +20,11 @@ def main():
             game.add_player(player2_name)
             #print(player1_name)
             #print(player2_name)
-            game.play_round()
+            while True:
+                if game.play_round():
+                    winner, max_score = game.get_winner()
+                    print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
+                    break
         elif choice == "2":
             pass
         elif choice == "3":
