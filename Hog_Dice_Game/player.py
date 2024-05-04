@@ -8,7 +8,7 @@ class Player:
         return dice.roll()
     
     def add_score(self, points):
-        self.score + points
+        self.score += points
     
     def reset_score(self):
         self.score = 0
