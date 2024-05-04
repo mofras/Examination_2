@@ -1,6 +1,6 @@
 '''Module for the Computer'''
 from player import Player
-from random importt choice
+from random import choice
 class Computer:
     def __init__(self, difficulty):
         super().__init__("Computer")
