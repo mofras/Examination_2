@@ -26,7 +26,10 @@ def main():
             while True:
                 if game.play_round():
                     winner, max_score = game.get_winner()
+                    print()
                     print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
+                    print()
+                    game.reset_game()
                     break
         elif choice == "2":
             menu.display_game_level()
@@ -44,7 +47,10 @@ def main():
             while True:
                 if game.play_round():
                     winner, max_score = game.get_winner()
+                    print()
                     print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
+                    print()
+                    game.reset_game()
                     break
         elif choice == "3":
             game.display_scores()
@@ -52,6 +58,7 @@ def main():
             rules.display_rules()
         elif choice == "5":
             break
+        
 
 
 if __name__ == "__main__":
