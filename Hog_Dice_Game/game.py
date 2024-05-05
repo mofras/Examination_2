@@ -9,7 +9,7 @@ class Game:
         self.players = []
         self.dice = Dice()
         self.scoreboard = Scoreboard()
-        self.target_score = 50
+        self.target_score = 20
 
     def add_player(self, name):
         self.players.append(Player(name))
@@ -41,13 +41,13 @@ class Game:
             if roll_sum > 0: #only add if the roll_sum is greater than 0.
                 print(f"{player.name}'s current score: {player.score + roll_sum}")
                 player.add_score(roll_sum)
-                self.scoreboard.add_score(player.name, roll_sum)     
+                self.scoreboard.add_score(player, roll_sum)     
             if player.score >= self.target_score:
                 game_completed = True
                 
         if game_completed:
             for player in self.players:
-                self.scoreboard.incr_games_played(player.name)
+                self.scoreboard.incr_games_played(player)
         return game_completed
 
     def get_num_dice(self, player):
@@ -64,8 +64,6 @@ class Game:
     
     def display_scores(self):
         self.scoreboard.display_scores()
-
-    
 
     def get_winner(self):
         max_score = max(player.score for player in self.players)

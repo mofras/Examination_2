@@ -12,3 +12,8 @@ class Player:
     
     def reset_score(self):
         self.score = 0
+
+    def change_name(self, new_name):
+        self.name = new_name
+
+   

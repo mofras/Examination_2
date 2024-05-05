@@ -5,11 +5,12 @@ from rules import Rules
 from computer import Computer
 
 
+
 def main():
     menu = Menu()
     game = Game()
     rules = Rules()
-
+  
     
     while True:
         menu.display_menu()
@@ -42,7 +43,7 @@ def main():
             else:
                 difficulty = "Hard"
             player_name = input("Enter your name: ")
-            game.add_player(player_name)
+            game.add_player(player.name)
             game.add_computer(difficulty)
             while True:
                 if game.play_round():
@@ -57,6 +58,12 @@ def main():
         elif choice == "4":
             rules.display_rules()
         elif choice == "5":
+            if game.players:
+                player_names = menu.get_player_names(game.players)
+                menu.change_name(game.players)
+            else:
+                print("There are no players to change their name.")
+        elif choice == "6":
             break
         
 
