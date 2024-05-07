@@ -1,5 +1,6 @@
 '''Module for the menu'''
 from player import Player
+from game import Game
 class Menu:
     def __init__(self):
         pass
@@ -35,23 +36,20 @@ class Menu:
             **************************
             ''')
 
-    def change_name(self, players):
-        if not players:
-            print("There are no players to change thier name.")
-            return
-
+    """ def change_name(self, game):
+        
         print("Select the player whose name you want to change:")
-        for i, player in enumerate(players, 1):
+        for i, player in enumerate(self.game.players, 1):
             print(f"{i}. {player.name}")
 
         choice = int(input("Enter the number corresponding to the player: "))
-        if 1 <= choice <= len(players):
+        if 1 <= choice <= len(self.game.players):
             new_name = input("Enter the new name: ")
-            players[choice - 1].change_name(new_name)
-            print(f"{players[choice - 1].name}'s name has been changed to {new_name}")
+            self.game.players[choice - 1].change_name(new_name)
+            print(f"{self.game.players[choice - 1].name}'s name has been changed to {new_name}")
         else:
             print("Invalid choice. Please enter a valid number.")
-
+        
     def get_player_names(self, players):
         '''Function to get a list of player names'''
-        return [player.name for player in players]
+        return [player.name for player in self.players] """

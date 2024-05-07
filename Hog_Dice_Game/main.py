@@ -10,9 +10,13 @@ def main():
     menu = Menu()
     game = Game()
     rules = Rules()
+    previous_players = []
   
     
     while True:
+        print('''
+            WELLCOME TO PIG "HOG" GAME!
+        ''')
         menu.display_menu()
         choice = input("Enter a choice: ")
 
@@ -30,7 +34,7 @@ def main():
                     print()
                     print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
                     print()
-                    game.reset_game()
+                    previous_players = game.reset_game()
                     break
         elif choice == "2":
             menu.display_game_level()
@@ -43,7 +47,7 @@ def main():
             else:
                 difficulty = "Hard"
             player_name = input("Enter your name: ")
-            game.add_player(player.name)
+            game.add_player(player_name)
             game.add_computer(difficulty)
             while True:
                 if game.play_round():
@@ -58,10 +62,19 @@ def main():
         elif choice == "4":
             rules.display_rules()
         elif choice == "5":
-            if game.players:
-                player_names = menu.get_player_names(game.players)
-                menu.change_name(game.players)
+            #if game.players:
+                #game.get_player_names(game.players)
+                #game.change_name(game)
+            if previous_players:  # Check if there are previous players
+                for player in previous_players:
+                    print(f"Previous player: {player.name}, Score: {player.score}")
+                game.change_name(previous_players, game.scoreboard) 
+                game.get_player_names(game.players)
+                
+
+                
             else:
+            #game.change_name()
                 print("There are no players to change their name.")
         elif choice == "6":
             break
