@@ -15,7 +15,7 @@ def main():
     
     while True:
         print('''
-            WELLCOME TO PIG "HOG" GAME!
+            🎲 WELCOME TO PIG "HOG" GAME! 🎲
         ''')
         menu.display_menu()
         choice = input("Enter a choice: ")
@@ -31,9 +31,7 @@ def main():
             while True:
                 if game.play_round():
                     winner, max_score = game.get_winner()
-                    print()
-                    print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
-                    print()
+                    game.announce_winner(winner, max_score)
                     previous_players = game.reset_game()
                     break
         elif choice == "2":
@@ -52,9 +50,10 @@ def main():
             while True:
                 if game.play_round():
                     winner, max_score = game.get_winner()
-                    print()
-                    print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
-                    print()
+                    #print()
+                    #print(f"The winner is {', ' .join(winner)} with a score of {max_score}")
+                    #print()
+                    game.announce_winner(winner, max_score)
                     game.reset_game()
                     break
         elif choice == "3":

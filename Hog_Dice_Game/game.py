@@ -3,6 +3,7 @@ from dice import Dice
 from player import Player
 from computer import Computer
 from scoreboard import Scoreboard
+import time
 
 class Game:
     def __init__(self):
@@ -26,7 +27,6 @@ class Game:
         previous_players = self.players.copy() #[(player.name, player.score) for player in self.players]
         self.players.clear()
         return previous_players
-        
 
     def play_round(self):
 
@@ -58,15 +58,23 @@ class Game:
 
     def get_num_dice(self, player):
         
-        while True:
-            try:
-                num_dice = int(input(f"{player.name}, how many dice do you want to roll? "))
-                if num_dice < 1:
-                    print("Please enter a positive number.")
-                else:
-                    return num_dice
-            except ValueError:
-                print("Please inter a valid number.")
+        if isinstance(player, Computer):
+            time.sleep(3)  # Wait for 3 seconds for dramatic effect
+            num_dice = self.dice.roll()  # Generate a random number of dice for the computer
+            print(f"Computer rolls {num_dice} dice.")
+        else:
+            # For human players, prompt for input
+            while True:
+                try:
+                    num_dice = int(input(f"{player.name}, how many dice do you want to roll? "))
+                    if num_dice < 1:
+                        print("Please enter a positive number.")
+                    else:
+                        return num_dice
+                except ValueError:
+                    print("Please enter a valid number.")
+
+        return num_dice
     
     def display_scores(self):
         self.scoreboard.display_scores()
@@ -134,8 +142,17 @@ class Game:
                 break
         if not found:
             print(f"Player with name {old_name} not found.") """
+    def announce_winner(self, winner, max_score):
+        '''Fuction to output the winner'''
+        print()
+        print('''
+            🎉🎉🎉 Congratulations! You won! 🎉🎉🎉''')
+        print(f'''
+        🎉🎉🎉 The winner is {', '.join(winner)} with a score of {max_score}! 🎉🎉🎉''')
+        print()
 
     def change_name(self, players, scoreboard):
+        '''Function for name changing'''
         
         print("Select the player whose name you want to change:")
         for i, player in enumerate(players, 1):
