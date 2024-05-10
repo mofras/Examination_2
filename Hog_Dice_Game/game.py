@@ -19,10 +19,6 @@ class Game:
         self.players.append(Computer(difficulty))
 
     def reset_game(self):
-        #for player in self.players:
-            #player.reset_score()
-        
-        #self.players.clear()
 
         previous_players = self.players.copy() #[(player.name, player.score) for player in self.players]
         self.players.clear()
@@ -63,7 +59,7 @@ class Game:
             num_dice = self.dice.roll()  # Generate a random number of dice for the computer
             print(f"Computer rolls {num_dice} dice.")
         else:
-            # For human players, prompt for input
+            #For human players, prompt for input
             while True:
                 try:
                     num_dice = int(input(f"{player.name}, how many dice do you want to roll? "))
@@ -76,72 +72,17 @@ class Game:
 
         return num_dice
     
+
     def display_scores(self):
         self.scoreboard.display_scores()
+
 
     def get_winner(self):
         max_score = max(player.score for player in self.players)
         winner = [player.name for player in self.players if player.score == max_score]
         return winner, max_score
 
-    """ def change_name(self):
-        new_name = input("Would you like to enter new name(s) (y/n)? ")
-        if new_name == "y":
-            # Retrieve current scores before clearing players
-            current_scores = {player.name: self.scoreboard.scores.get(player.name) for player in self.players}
-            
-            #print("Current scores:", current_scores)
-            self.players.clear()  # Clear existing players
-            player1_name = input("Enter name of player 1: ")
-            player2_name = input("Enter name of player 2: ")
-            #self.player1_name = player1_name
-            #self.player2_name = player2_name
-            
-            self.add_player(player1_name)  # Add new players
-            self.add_player(player2_name)
 
-
-            # Update names in scoreboard and restore scores
-            for name, score in current_scores.items():
-                for player in self.players:
-                    if player.name == name:
-                        player.score = score 
-            for player in self.players:
-                player.score = current_scores.get(player.name, 0)
-                self.scoreboard.add_score(player, player.score)
-
-            self.scoreboard.scores.update({player.name: self.scoreboard.scores.pop(name) for name in current_scores})
-
-            for player in self.players:
-                #player.score = current_scores.get(player.name, 0)
-                #self.scoreboard.add_score(player, player.score)
-                self.scoreboard.scores = {player.name: self.scoreboard.scores.get(player.name, 0) for player in self.players}
-                self.scoreboard.games_played = {player.name: self.scoreboard.games_played.get(player.name, 0) for player in self.players}
-                #print(f"Player: {player.name}, Score: {player_score}, Games Played: {player_games_played}")
-            
-            #self.scoreboard.display_scores()  # Display updated scores
-        elif new_name == "n":
-            print("Names remain the same")
-            print("Game Ended!")
-            print("Thanks for playing") """
-
-    """ def change_name(self):
-
-        print("Current players:", [player.name for player in self.players])
-        old_name = input("Enter the name you want to change: ")
-        found = False
-        for player in self.players:
-            if player.name == old_name:
-                found = True
-                new_name = input("Enter the new name: ")
-                player.change_name(new_name)
-                print(f"Name changed successfully from {old_name} to {new_name}")
-                self.scoreboard.increment_score(player, 0)  # Reset the score for the new name
-                self.scoreboard.increment_games_played(player)  # Increment games played for the new name
-                self.scoreboard.display_scores()
-                break
-        if not found:
-            print(f"Player with name {old_name} not found.") """
     def announce_winner(self, winner, max_score):
         '''Fuction to output the winner'''
         print()
@@ -150,6 +91,7 @@ class Game:
         print(f'''
         🎉🎉🎉 The winner is {', '.join(winner)} with a score of {max_score}! 🎉🎉🎉''')
         print()
+        
 
     def change_name(self, players, scoreboard):
         '''Function for name changing'''
