@@ -2,11 +2,18 @@
 from player import Player
 from game import Game
 class Menu:
+    '''
+    Class representing a menu for the game.
+
+    This class provides methods to display different menus in the game.
+    '''
     def __init__(self):
         pass
 
     def display_menu(self):
-        '''Fuction displaying for main menu'''
+        '''
+        Display the main menu of the game.
+        '''
 
         print('''
                 **************************
@@ -22,6 +29,9 @@ class Menu:
             ''')
     
     def display_game_menu(self):
+        '''
+        Display the menu for choosing a game mode.
+        '''
 
         print('''
                 **************************
@@ -34,7 +44,9 @@ class Menu:
             ''')
 
     def display_game_level(self):
-        '''Function displaying game levels'''
+        '''
+        Display the menu for choosing the difficulty level of the game.
+        '''
 
         print('''
                 **************************

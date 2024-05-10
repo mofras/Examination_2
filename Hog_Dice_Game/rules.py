@@ -1,9 +1,20 @@
 '''Module for the rules'''
 class Rules:
+    """
+    Class to define the rules of the Dice Hog game.
+    
+    This class provides a method to display the rules of the game.
+    """
     def __init__(self):
         pass
     
     def display_rules(self):
+        """
+        Method to display the rules of the Dice Hog game.
+        
+        This method prints out the rules of the game, including the objective, players, gameplay, scoring, and winning conditions.
+        """
+        
         print('''
 
         Dice Hog Game:

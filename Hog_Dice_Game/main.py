@@ -7,6 +7,13 @@ from computer import Computer
 
 
 def main():
+    """
+    Main function to run the Pig "Hog" game.
+    
+    This function initializes the game components, displays the menu, and handles user input to start the game, 
+    display the scoreboard, view rules, change player names, or quit the game.
+    """
+    
     menu = Menu()
     game = Game()
     rules = Rules()
