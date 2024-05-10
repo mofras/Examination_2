@@ -23,6 +23,10 @@ class Scoreboard:
         if player.name not in self.games_played:
             self.games_played[player.name] = 0
         self.games_played[player.name] += 1 
+    
+    #def clear(self):
+        #self.scores = {}
+        #self.games_played = {}
       
     
     """ def increment_score(self, player, score):

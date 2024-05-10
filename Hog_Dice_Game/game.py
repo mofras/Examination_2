@@ -11,6 +11,7 @@ class Game:
         self.dice = Dice()
         self.scoreboard = Scoreboard()
         self.target_score = 20
+        #self.game_ongoing = False
 
     def add_player(self, name):
         self.players.append(Player(name))
@@ -19,15 +20,15 @@ class Game:
         self.players.append(Computer(difficulty))
 
     def reset_game(self):
-
         previous_players = self.players.copy() #[(player.name, player.score) for player in self.players]
         self.players.clear()
         return previous_players
 
     def play_round(self):
+        #self.game_ongoing = True
 
+        #while self.game_ongoing:
         game_completed = False
-
         for player in self.players:
             num_dice = self.get_num_dice(player)
             roll_sum = 0
@@ -51,15 +52,17 @@ class Game:
             for player in self.players:
                 self.scoreboard.incr_games_played(player)
         return game_completed
+        #self.game_ongoing = False
 
+
+    
     def get_num_dice(self, player):
-        
         if isinstance(player, Computer):
             time.sleep(3)  # Wait for 3 seconds for dramatic effect
             num_dice = self.dice.roll()  # Generate a random number of dice for the computer
             print(f"Computer rolls {num_dice} dice.")
         else:
-            #For human players, prompt for input
+            # For human players, prompt for input
             while True:
                 try:
                     num_dice = int(input(f"{player.name}, how many dice do you want to roll? "))
@@ -69,7 +72,6 @@ class Game:
                         return num_dice
                 except ValueError:
                     print("Please enter a valid number.")
-
         return num_dice
     
 
@@ -97,16 +99,16 @@ class Game:
         '''Function for name changing'''
         
         print("Select the player whose name you want to change:")
-        for i, player in enumerate(players, 1):
+        for i, player in enumerate(self.players, 1):
             print(f"{i}. {player.name}")
 
         choice = int(input("Enter the number corresponding to the player: "))
-        if 1 <= choice <= len(players):
-            player_to_change = players[choice - 1]
+        if 1 <= choice <= len(self.players):
+            player_to_change = self.players[choice - 1]
             old_name = player_to_change.name
             print(f"Changing name for player {old_name}")
             new_name = input("Enter the new name: ")
-            players[choice - 1].change_name(new_name)
+            self.players[choice - 1].change_name(new_name)
             print(f"{old_name}'s name has been changed to {new_name}")
 
             for name, score in scoreboard.scores.items():

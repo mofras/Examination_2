@@ -25,18 +25,26 @@ def main():
             menu.display_game_menu()
             choice = input("Choose a game: ")
             if choice == "1":
+                #if not previous_players:
                 player1_name = input("Enter player 1 name: ")
                 player2_name = input("Enter player 2 name: ")
                 game.add_player(player1_name)
                 game.add_player(player2_name)
+                #else:
+                   #player1_name, player2_name = previous_players
+                #game.reset_game_state()
                 while True:
                     if game.play_round():
                         winner, max_score = game.get_winner()
                         game.announce_winner(winner, max_score)
-                        previous_players = game.reset_game()
+                        previous_players = [player1_name, player2_name]
                         break
+                    #choice = input("Enter 'q' to quit or any other key to restart: ")
+                    #if choice.lower() == 'q':
+                        #print("Game restarted")
+                            #previous_players = game.reset_game_state()
                 #elif input("Enter 'q' to quit the game: ") == 'q':
-                    #break
+                        #break
             elif choice == "2":
                 menu.display_game_level()
                 difficulty = None
@@ -56,6 +64,9 @@ def main():
                         game.announce_winner(winner, max_score)
                         game.reset_game()
                         break
+                        #choice = input("Enter 'q' to quit or any other key to restart: ")
+                        #if choice.lower() == 'q':
+                            #break
                     #elif input("Enter 'q' to quit the game: ") == 'q':
                         #break
         elif choice == "2":
