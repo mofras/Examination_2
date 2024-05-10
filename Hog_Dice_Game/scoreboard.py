@@ -8,17 +8,7 @@ class Scoreboard:
         if player.name not in self.scores:
             self.scores[player.name] = 0
         self.scores[player.name] += score
-    
-
-    #self.scores.append((player.name, score))
-       
-      
-        """ for i, (name, current_score) in enumerate(self.scores):
-            if name == player.name:
-                self.scores[i] = (name, current_score + score)
-                break """
         
-
     def incr_games_played(self, player):
         if player.name not in self.games_played:
             self.games_played[player.name] = 0
@@ -27,13 +17,6 @@ class Scoreboard:
     #def clear(self):
         #self.scores = {}
         #self.games_played = {}
-      
-    
-    """ def increment_score(self, player, score):
-        for i, (name, current_score) in enumerate(self.scores):
-            if name == player.name:
-                self.scores[i] = (name, current_score + score)
-                break """
 
     def display_scores(self):
         print("--------------------------------SCOREBOARD---------------------------------")

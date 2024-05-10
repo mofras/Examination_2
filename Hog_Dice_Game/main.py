@@ -80,7 +80,6 @@ def main():
                 game.change_name(previous_players, game.scoreboard) 
                 game.get_player_names(game.players)
             else:
-            #game.change_name()
                 print("There are no players to change their name.")
         elif choice == "5":
             break

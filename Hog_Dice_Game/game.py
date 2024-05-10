@@ -13,6 +13,7 @@ class Game:
         self.target_score = 20
         #self.game_ongoing = False
 
+
     def add_player(self, name):
         self.players.append(Player(name))
     
@@ -26,7 +27,6 @@ class Game:
 
     def play_round(self):
         #self.game_ongoing = True
-
         #while self.game_ongoing:
         game_completed = False
         for player in self.players:
@@ -53,8 +53,6 @@ class Game:
                 self.scoreboard.incr_games_played(player)
         return game_completed
         #self.game_ongoing = False
-
-
     
     def get_num_dice(self, player):
         if isinstance(player, Computer):
@@ -74,16 +72,13 @@ class Game:
                     print("Please enter a valid number.")
         return num_dice
     
-
     def display_scores(self):
         self.scoreboard.display_scores()
-
 
     def get_winner(self):
         max_score = max(player.score for player in self.players)
         winner = [player.name for player in self.players if player.score == max_score]
         return winner, max_score
-
 
     def announce_winner(self, winner, max_score):
         '''Fuction to output the winner'''
