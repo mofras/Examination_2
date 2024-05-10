@@ -80,7 +80,7 @@ class Game:
                     roll_sum = 0
                     break
                 roll_sum += roll
-            if roll_sum > 0: #only add if the roll_sum is greater than 0.
+            if roll_sum > 1: #only add if the roll_sum is greater than 0.
                 print(f"{player.name}'s current score: {player.score + roll_sum}")
                 player.add_score(roll_sum)
                 self.scoreboard.add_score(player, roll_sum)
@@ -166,37 +166,42 @@ class Game:
             players (list): A list of Player objects.
             scoreboard (Scoreboard): The scoreboard object.
         '''
-        
-        print("Select the player whose name you want to change:")
-        for i, player in enumerate(self.players, 1):
-            print(f"{i}. {player.name}")
 
-        choice = int(input("Enter the number corresponding to the player: "))
-        if 1 <= choice <= len(self.players):
-            player_to_change = self.players[choice - 1]
-            old_name = player_to_change.name
-            print(f"Changing name for player {old_name}")
-            new_name = input("Enter the new name: ")
-            self.players[choice - 1].change_name(new_name)
-            print(f"{old_name}'s name has been changed to {new_name}")
-
-            for name, score in scoreboard.scores.items():
-                if name == old_name:
-                    self.scoreboard.scores[new_name] = score
-                    del self.scoreboard.scores[old_name]
-                    break
-            for name, games_played in self.scoreboard.games_played.items():
-                if name == old_name:
-                    self.scoreboard.games_played[new_name] = games_played
-                    del self.scoreboard.games_played[old_name]
-                    break
-
+        if players:  # Check if there are previous players
+            print("Select the player whose name you want to change:")
+            for i, player_name in enumerate(players, 1):
+                print(f"{i}. {player_name}")
+            choice = int(input("Enter the number corresponding to the player: "))
+            if 1 <= choice <= len(players):
+                player_name_to_change = players[choice - 1]
+                print(f"Changing name for player {player_name_to_change}")
+                new_name = input("Enter the new name: ")
+                for player in self.players:
+                    if player.name == player_name_to_change:
+                        player.change_name(new_name)
+                        print(f"{player_name_to_change}'s name has been changed to {new_name}")
+                        self.scoreboard.change_name(player_name_to_change, new_name)
+                        break
+                players[choice - 1] = new_name
+                
+                for name, score in self.scoreboard.scores.items():
+                    if name == player_name_to_change:
+                        self.scoreboard.scores[new_name] = score
+                        del self.scoreboard.scores[player_name_to_change]
+                        break
+                for name, games_played in self.scoreboard.games_played.items():
+                    if name == player_name_to_change:
+                        self.scoreboard.games_played[new_name] = games_played
+                        del self.scoreboard.games_played[player_name_to_change]
+                        break
+            else:
+                print("Invalid choice. Please enter a valid number.")
         else:
-            print("Invalid choice. Please enter a valid number.")
+            print("There are no players to change their name.")
     
 
     def get_player_names(self, players):
-         '''
+        '''
         Function to get a list of player names
         
         Args:
@@ -205,4 +210,5 @@ class Game:
         Returns:
             list: A list of player names.
         '''
+
         return [player.name for player in self.players] 

@@ -6,7 +6,7 @@ class Computer(Player):
     Class representing a computer player in the Dice Hog game.
     
     This class inherits from the Player class and implements AI logic for computer-controlled players.
-    ''''
+    '''
 
     def __init__(self, difficulty):
         '''
@@ -16,6 +16,7 @@ class Computer(Player):
             difficulty (str): The difficulty level of the computer player. 
                 Can be one of 'Easy', 'Medium', or 'Hard'.
         '''
+
         super().__init__("Computer")
         self.difficulty = difficulty
     
@@ -29,6 +30,7 @@ class Computer(Player):
         Returns:
             int: The result of rolling the dice based on the computer's AI logic.
         '''
+
         if self.difficulty == "Easy":
             return dice.roll()
         elif self.difficulty == "Medium":

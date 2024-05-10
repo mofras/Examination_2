@@ -5,10 +5,12 @@ class Scoreboard:
 
     This class keeps track of player scores and games played.
     '''
+
     def __init__(self):
         '''
         Initialize the Scoreboard object.
         '''
+
         self.scores = {}
         self.games_played = {}
     
@@ -20,6 +22,7 @@ class Scoreboard:
             player (Player): The player whose score is being added.
             score (int): The score to add to the player's total score.
         '''
+
         if player.name not in self.scores:
             self.scores[player.name] = 0
         self.scores[player.name] += score
@@ -31,6 +34,7 @@ class Scoreboard:
         Args:
             player (Player): The player whose games played count is being incremented.
         '''
+
         if player.name not in self.games_played:
             self.games_played[player.name] = 0
         self.games_played[player.name] += 1 
@@ -43,6 +47,7 @@ class Scoreboard:
         '''
         Display the scores and statistics on the scoreboard.
         '''
+        
         print("--------------------------------SCOREBOARD---------------------------------")
         print("---------------------------------------------------------------------------")
         for player, score in self.scores.items():

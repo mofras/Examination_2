@@ -5,6 +5,7 @@ class Rules:
     
     This class provides a method to display the rules of the game.
     """
+    
     def __init__(self):
         pass
     
@@ -14,7 +15,7 @@ class Rules:
         
         This method prints out the rules of the game, including the objective, players, gameplay, scoring, and winning conditions.
         """
-        
+
         print('''
 
         Dice Hog Game:

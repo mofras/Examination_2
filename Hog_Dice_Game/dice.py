@@ -14,6 +14,7 @@ class Dice:
         Args:
             num_sides (int, optional): The number of sides on the dice. Defaults to 6.
         '''
+
         self.num_sides = num_sides
 
     def roll(self):
@@ -23,4 +24,5 @@ class Dice:
         Returns:
             int: The result of rolling the dice, a random integer between 1 and the number of sides.
         '''
+        
         return random.randint(1, self.num_sides)

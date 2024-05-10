@@ -6,6 +6,7 @@ class Player:
     This class manages player attributes such as name and score, as well as methods for rolling dice, 
     adding scores, resetting scores, and changing names.
     '''
+
     def __init__(self, name):
         '''
         Initialize a Player object.
@@ -42,6 +43,7 @@ class Player:
     
     def reset_score(self):
         '''Reset the player's score to zero.'''
+        
         self.score = 0
 
     def change_name(self, new_name):
@@ -51,7 +53,7 @@ class Player:
         Args:
             new_name (str): The new name for the player.
         """
-        
+
         self.name = new_name
 
    
