@@ -1,7 +1,6 @@
 import unittest
 from computer import Computer
-from dice import Dice  # Assuming you have a Dice class
-
+from dice import Dice
 class TestComputer(unittest.TestCase):
 
     def test_roll_dice_easy(self):
