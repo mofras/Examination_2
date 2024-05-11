@@ -1,6 +1,5 @@
 '''Module for the menu'''
 from player import Player
-from game import Game
 class Menu:
     '''
     Class representing a menu for the game.
@@ -58,3 +57,8 @@ class Menu:
                 |                        |
                 **************************
             ''')
+    def print_warning(sekf, text):
+        """
+        Print a warning message in red text.
+        """
+        print("\033[91m{}\033[00m".format(text))

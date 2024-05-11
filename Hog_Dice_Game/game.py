@@ -3,6 +3,7 @@ from dice import Dice
 from player import Player
 from computer import Computer
 from scoreboard import Scoreboard
+from menu import Menu
 import time
 
 class Game:
@@ -22,6 +23,7 @@ class Game:
         self.players = []
         self.dice = Dice()
         self.scoreboard = Scoreboard()
+        self.menu = Menu()
         self.target_score = 20
         #self.game_ongoing = False
 
@@ -119,7 +121,7 @@ class Game:
                     else:
                         return num_dice
                 except ValueError:
-                    print("Please enter a valid number.")
+                    self.menu.print_warning("Please enter a valid number.")
         return num_dice
     
     def display_scores(self):
@@ -171,31 +173,34 @@ class Game:
             print("Select the player whose name you want to change:")
             for i, player_name in enumerate(players, 1):
                 print(f"{i}. {player_name}")
-            choice = int(input("Enter the number corresponding to the player: "))
-            if 1 <= choice <= len(players):
-                player_name_to_change = players[choice - 1]
-                print(f"Changing name for player {player_name_to_change}")
-                new_name = input("Enter the new name: ")
-                for player in self.players:
-                    if player.name == player_name_to_change:
-                        player.change_name(new_name)
-                        print(f"{player_name_to_change}'s name has been changed to {new_name}")
-                        self.scoreboard.change_name(player_name_to_change, new_name)
-                        break
-                players[choice - 1] = new_name
-                
-                for name, score in self.scoreboard.scores.items():
-                    if name == player_name_to_change:
-                        self.scoreboard.scores[new_name] = score
-                        del self.scoreboard.scores[player_name_to_change]
-                        break
-                for name, games_played in self.scoreboard.games_played.items():
-                    if name == player_name_to_change:
-                        self.scoreboard.games_played[new_name] = games_played
-                        del self.scoreboard.games_played[player_name_to_change]
-                        break
-            else:
-                print("Invalid choice. Please enter a valid number.")
+            while True:
+                try:
+                    choice = int(input("Enter the number corresponding to the player: "))
+                    if 1 <= choice <= len(players):
+                        old_name = players[choice - 1]
+                        print(f"Changing name for player {old_name}")
+                        new_name = input("Enter the new name: ")
+                        players[choice - 1] = new_name
+                        if new_name == old_name:
+                            self.menu.print_warning("Name alread exist")
+                        else:
+                            print(f"{old_name}'s name has been changed to {new_name}")
+                            for name, score in self.scoreboard.scores.items():
+                                if name == old_name:
+                                    self.scoreboard.scores[new_name] = score
+                                    del self.scoreboard.scores[old_name]
+                                    break
+                            for name, games_played in self.scoreboard.games_played.items():
+                                if name == old_name:
+                                    self.scoreboard.games_played[new_name] = games_played
+                                    del self.scoreboard.games_played[old_name]
+                                    break
+                    else:
+                        print("Invalid choice. Please enter a valid number.")
+                except ValueError:
+                    self.menu.print_warning("Invalid choice. Please enter a number.")
+                    continue
+                break
         else:
             print("There are no players to change their name.")
     
