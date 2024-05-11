@@ -40,3 +40,5 @@ class Computer(Player):
             return dice.roll() if choice([True, False]) else 1
         elif self.difficulty == "Hard":
             return dice.roll() if choice([True, False]) else dice.roll()
+        else:
+            raise ValueError("Invalid difficulty level")
