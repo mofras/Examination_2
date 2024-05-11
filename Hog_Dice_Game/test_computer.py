@@ -1,10 +1,8 @@
 import unittest
 from computer import Computer
 from dice import Dice
-<<<<<<< HEAD
 
-=======
->>>>>>> 582617a06ee00895372ed9c10c9cc2c13d2c7cf3
+
 class TestComputer(unittest.TestCase):
 
     def test_roll_dice_easy(self):
