@@ -9,14 +9,14 @@ import time
 class Game:
     '''
     Class to manage the gameplay of the Dice Hog game.
-    
+
     This class handles various aspects of the game, including adding players, playing rounds, determining winners, etc.
     '''
 
     def __init__(self):
         '''
         Initialize the Game object.
-        
+
         Initializes the list of players, dice object, scoreboard, and target score.
         '''
 
@@ -31,17 +31,17 @@ class Game:
     def add_player(self, name):
         '''
         Add a player to the game.
-        
+
         Args:
             name (str): The name of the player to be added.
         '''
 
         self.players.append(Player(name))
-    
+
     def add_computer(self, difficulty):
         '''
         Add a computer player to the game.
-        
+
         Args:
             difficulty (str): The difficulty level of the computer player.
         '''
@@ -51,19 +51,19 @@ class Game:
     def reset_game(self):
         '''
         Reset the game state.
-        
+
         Returns:
             list: A list of previous players before resetting the game.
         '''
 
-        previous_players = self.players.copy() 
+        previous_players = self.players.copy()
         self.players.clear()
         return previous_players
 
     def play_round(self):
         '''
         Play a round of the game.
-        
+
         Returns:
             bool: True if the game is completed, False otherwise.
         '''
@@ -83,22 +83,22 @@ class Game:
             if roll_sum > 1: #only add if the roll_sum is greater than 0.
                 print(f"{player.name}'s current score: {player.score + roll_sum}")
                 player.add_score(roll_sum)
-                self.scoreboard.add_score(player, roll_sum)   
+                self.scoreboard.add_score(player, roll_sum)
             if player.score >= self.target_score:
                 game_completed = True
-                
+
         if game_completed:
             for player in self.players:
                 self.scoreboard.incr_games_played(player)
         return game_completed
-    
+
     def get_num_dice(self, player):
         '''
         Get the number of dice to roll for a player's turn.
-        
+
         Args:
             player (Player): The player for whom the number of dice needs to be determined.
-        
+
         Returns:
             int: The number of dice to roll.
         '''
@@ -119,7 +119,7 @@ class Game:
                 except ValueError:
                     self.menu.print_warning("Please enter a valid number.")
         return num_dice
-    
+
     def display_scores(self):
         '''
         Display the scores of all players.
@@ -130,7 +130,7 @@ class Game:
     def get_winner(self):
         '''
         Get the winner of the game.
-        
+
         Returns:
             tuple: A tuple containing a list of winners and their score.
         '''
@@ -142,24 +142,24 @@ class Game:
     def announce_winner(self, winner, max_score):
         '''
         Function to output the winner
-        
+
         Args:
             winner (list): A list of winners' names.
             max_score (int): The maximum score achieved by the winners.
         '''
-        
+
         print()
         print('''
             🎉🎉🎉 Congratulations! You won! 🎉🎉🎉''')
         print(f'''
         🎉🎉🎉 The winner is {', '.join(winner)} with a score of {max_score}! 🎉🎉🎉''')
         print()
-        
+
 
     def change_name(self, players, scoreboard):
         '''
         Function for name changing
-        
+
         Args:
             players (list): A list of Player objects.
             scoreboard (Scoreboard): The scoreboard object.
@@ -200,17 +200,17 @@ class Game:
                 break
         else:
             print("There are no players to change their name.")
-    
+
 
     #def get_player_names(self, players):
         '''
         Function to get a list of player names
-        
+
         Args:
             players (list): A list of Player objects.
-        
+
         Returns:
             list: A list of player names.
         '''
 
-        #return [player.name for player in self.players] 
+        #return [player.name for player in self.players]

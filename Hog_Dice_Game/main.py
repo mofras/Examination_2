@@ -2,24 +2,22 @@
 from menu import Menu
 from game import Game
 from rules import Rules
-from computer import Computer
-
 
 
 def main():
     """
     Main function to run the Pig "Hog" game.
-    
-    This function initializes the game components, displays the menu, and handles user input to start the game, 
-    display the scoreboard, view rules, change player names, or quit the game.
+
+    This function initializes the game components, displays the menu, and
+    handles user input to start the game, display the scoreboard, view rules,
+    change player names, or quit the game.
     """
 
     menu = Menu()
     game = Game()
     rules = Rules()
     previous_players = []
-  
-    
+
     while True:
         print('''
              🎲 WELCOME TO PIG "HOG" GAME! 🎲
@@ -44,7 +42,7 @@ def main():
                             game.reset_game()
                             previous_players = [player1_name, player2_name]
                             break
-                        
+
                 elif choice == "2":
                     #Player vs Computer
                     menu.display_game_level()
@@ -74,8 +72,8 @@ def main():
         elif choice == "3":
             rules.display_rules()
         elif choice == "4":
-            if previous_players:  
-                game.change_name(previous_players, game.scoreboard) 
+            if previous_players:
+                game.change_name(previous_players, game.scoreboard)
                 #game.get_player_names(game.players)
             else:
                 print("There are no players to change their name.")

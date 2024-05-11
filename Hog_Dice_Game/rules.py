@@ -2,25 +2,26 @@
 class Rules:
     """
     Class to define the rules of the Dice Hog game.
-    
+
     This class provides a method to display the rules of the game.
     """
 
     def __init__(self):
         pass
-    
+
     def display_rules(self):
         """
         Method to display the rules of the Dice 'Hog' game.
-        
-        This method prints out the rules of the game, including the objective, players, gameplay, scoring, and winning conditions.
+
+        This method prints out the rules of the game, including the objective, players,
+        gameplay, scoring, and winning conditions.
         """
 
         print('''
 
         Dice 'Hog' Game:
-        The objective of Dice Hog is to be the first player to reach or exceed the target score, 
-        typically set at 100 points. 
+        The objective of Dice Hog is to be the first player to reach or exceed the target score,
+        typically set at 100 points.
 
         PLAYERS:
         Dice Hog can be played by two or more players.

@@ -1,5 +1,6 @@
 '''Module for the menu'''
-from player import Player
+
+
 class Menu:
     '''
     Class representing a menu for the game.
@@ -26,7 +27,7 @@ class Menu:
                 |                        |
                 **************************
             ''')
-    
+
     def display_game_menu(self):
         '''
         Display the menu for choosing a game mode.
@@ -57,7 +58,7 @@ class Menu:
                 |                        |
                 **************************
             ''')
-    def print_warning(sekf, text):
+    def print_warning(self, text):
         """
         Print a warning message in red text.
         """
