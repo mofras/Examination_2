@@ -7,9 +7,10 @@ from rules import Rules
 class TestRules(unittest.TestCase):
 
     def test_display_rules(self):
-        '''Create an instance of the Rules class'''
+        '''Tests the output of Rules class'''
         rules = Rules()
-        captured_output = StringIO()  # Create a StringIO object to capture printed output
+        # Create a StringIO object to capture printed output
+        captured_output = StringIO()
         expected_output = '''
 
         Dice 'Hog' Game:
