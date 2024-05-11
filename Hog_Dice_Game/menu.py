@@ -62,4 +62,5 @@ class Menu:
         """
         Print a warning message in red text.
         """
-        print("\033[91m{}\033[00m".format(text))
+        if text:
+            print("\033[91m{}\033[00m".format(text))
