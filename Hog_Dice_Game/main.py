@@ -76,7 +76,7 @@ def main():
         elif choice == "4":
             if previous_players:  
                 game.change_name(previous_players, game.scoreboard) 
-                game.get_player_names(game.players)
+                #game.get_player_names(game.players)
             else:
                 print("There are no players to change their name.")
         elif choice == "5":

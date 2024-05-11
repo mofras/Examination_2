@@ -56,7 +56,7 @@ class Game:
             list: A list of previous players before resetting the game.
         '''
 
-        previous_players = self.players.copy() #[(player.name, player.score) for player in self.players]
+        previous_players = self.players.copy() 
         self.players.clear()
         return previous_players
 
@@ -68,8 +68,6 @@ class Game:
             bool: True if the game is completed, False otherwise.
         '''
 
-        #self.game_ongoing = True
-        #while self.game_ongoing:
         game_completed = False
         for player in self.players:
             num_dice = self.get_num_dice(player)
@@ -85,8 +83,7 @@ class Game:
             if roll_sum > 1: #only add if the roll_sum is greater than 0.
                 print(f"{player.name}'s current score: {player.score + roll_sum}")
                 player.add_score(roll_sum)
-                self.scoreboard.add_score(player, roll_sum)
-                #self.scoreboard.increment_score(player, roll_sum)     
+                self.scoreboard.add_score(player, roll_sum)   
             if player.score >= self.target_score:
                 game_completed = True
                 
@@ -94,7 +91,6 @@ class Game:
             for player in self.players:
                 self.scoreboard.incr_games_played(player)
         return game_completed
-        #self.game_ongoing = False
     
     def get_num_dice(self, player):
         '''
@@ -197,6 +193,7 @@ class Game:
                                     break
                     else:
                         print("Invalid choice. Please enter a valid number.")
+                        continue
                 except ValueError:
                     self.menu.print_warning("Invalid choice. Please enter a number.")
                     continue
@@ -205,7 +202,7 @@ class Game:
             print("There are no players to change their name.")
     
 
-    def get_player_names(self, players):
+    #def get_player_names(self, players):
         '''
         Function to get a list of player names
         
@@ -216,4 +213,4 @@ class Game:
             list: A list of player names.
         '''
 
-        return [player.name for player in self.players] 
+        #return [player.name for player in self.players] 
