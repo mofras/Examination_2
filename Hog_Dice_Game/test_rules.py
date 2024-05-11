@@ -6,9 +6,12 @@ from rules import Rules
 
 class TestRules(unittest.TestCase):
 
+    def setUp(self):
+        '''Create an instance of the Rules class'''
+        self.rules = Rules()
+
     def test_display_rules(self):
         '''Tests the output of Rules class'''
-        rules = Rules()
         # Create a StringIO object to capture printed output
         captured_output = StringIO()
         expected_output = '''
@@ -43,7 +46,7 @@ class TestRules(unittest.TestCase):
 
         # Redirect stdout to the captured_output object
         with unittest.mock.patch('sys.stdout', new=captured_output):
-            rules.display_rules()
+            self.rules.display_rules()
 
         # Compare the captured output with the expected output
         self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())

@@ -6,9 +6,11 @@ from menu import Menu
 class TestMenu(unittest.TestCase):
 
     def setUp(self):
+        '''Create an instance of the Menu class'''
         self.menu = Menu()
 
     def test_display_menu(self):
+        '''Test method to verify if display_menu() prints'''
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.display_menu()
@@ -29,6 +31,7 @@ class TestMenu(unittest.TestCase):
 
 
     def test_display_game_menu(self):
+        '''Test method to verify if display_game_menu() prints '''
             captured_output = StringIO()
             sys.stdout = captured_output
             self.menu.display_game_menu()
@@ -45,6 +48,7 @@ class TestMenu(unittest.TestCase):
             self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
     def test_display_game_level(self):
+        '''Test method to verify if display_game_level() prints'''
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.display_game_level()
@@ -62,6 +66,7 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
     def test_print_warning(self):
+        '''est method to verify if print_warning() prints'''
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.print_warning("Test warning")
@@ -70,6 +75,8 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), expected_output)
 
     def test_print_warning_not_called(self):
+        '''Test method to verify if print_warning() does not print
+        anything when called with an empty string'''
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.print_warning("")
@@ -77,6 +84,8 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), "")
 
     def test_print_warning_multiple_calls(self):
+        '''Test method to verify if print_warning() prints multiple
+        warning messages correctly'''
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.print_warning("Test warning")
