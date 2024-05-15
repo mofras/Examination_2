@@ -7,14 +7,14 @@ from rules import Rules
 class TestRules(unittest.TestCase):
 
     def setUp(self):
-        '''Create an instance of the Rules class'''
+        """Create an instance of the Rules class"""
         self.rules = Rules()
 
     def test_display_rules(self):
-        '''Tests the output of Rules class'''
+        """Tests the output of Rules class"""
         # Create a StringIO object to capture printed output
         captured_output = StringIO()
-        expected_output = '''
+        expected_output = """
 
         Dice 'Hog' Game:
         The objective of Dice Hog is to be the first player to reach or exceed the target score,
@@ -42,14 +42,15 @@ class TestRules(unittest.TestCase):
         Once a player reaches or exceeds the target score at the end of their turn, the game ends.
         The player with the highest total score at the end of the game is declared the winner.
 
-    '''
+    """
 
         # Redirect stdout to the captured_output object
-        with unittest.mock.patch('sys.stdout', new=captured_output):
+        with unittest.mock.patch("sys.stdout", new=captured_output):
             self.rules.display_rules()
 
         # Compare the captured output with the expected output
         self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

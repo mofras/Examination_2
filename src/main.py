@@ -1,4 +1,5 @@
-'''Moddule for the main function'''
+"""Moddule for the main function"""
+
 from menu import Menu
 from game import Game
 from rules import Rules
@@ -19,14 +20,16 @@ def main():
     previous_players = []
 
     while True:
-        print('''
+        print(
+            """
              🎲 WELCOME TO PIG "HOG" GAME! 🎲
-        ''')
+        """
+        )
         menu.display_menu()
         choice = input("Enter a choice: ")
 
         if choice == "1":
-            #player aginst player
+            # player aginst player
             while True:
                 menu.display_game_menu()
                 choice = input("Choose a game: ")
@@ -44,13 +47,13 @@ def main():
                             break
 
                 elif choice == "2":
-                    #Player vs Computer
+                    # Player vs Computer
                     menu.display_game_level()
                     difficulty = None
                     choice = input("Choose a level: ")
                     if choice == "1":
                         difficulty = "Easy"
-                    elif choice =="2":
+                    elif choice == "2":
                         difficulty = "Medium"
                     else:
                         difficulty = "Hard"
@@ -76,7 +79,7 @@ def main():
         elif choice == "4":
             if previous_players:
                 game.change_name(previous_players, game.scoreboard)
-                #game.get_player_names(game.players)
+                # game.get_player_names(game.players)
             else:
                 print("There are no players to change their name.")
         elif choice == "5":

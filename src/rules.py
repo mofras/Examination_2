@@ -1,4 +1,6 @@
-'''Module for the rules'''
+"""Module for the rules"""
+
+
 class Rules:
     """
     Class to define the rules of the Dice Hog game.
@@ -17,7 +19,8 @@ class Rules:
         gameplay, scoring, and winning conditions.
         """
 
-        print('''
+        print(
+            """
 
         Dice 'Hog' Game:
         The objective of Dice Hog is to be the first player to reach or exceed the target score,
@@ -45,4 +48,5 @@ class Rules:
         Once a player reaches or exceeds the target score at the end of their turn, the game ends.
         The player with the highest total score at the end of the game is declared the winner.
 
-    ''')
+    """
+        )

@@ -62,7 +62,8 @@ clean-all: clean clean-doc clean-src
 # Test all the code at once.
 #
 pylint:
-	pylint
+	@$(call MESSAGE,$@)
+	$(PYTHON) -m pylint *.py
 
 flake8:
 	flake8
@@ -93,7 +94,7 @@ test: lint coverage
 #
 black:
 	@$(call MESSAGE,$@)
-	 $(PYTHON) -m black .
+	$(PYTHON) -m black .
 
 codestyle: black
 

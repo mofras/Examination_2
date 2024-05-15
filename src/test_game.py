@@ -3,46 +3,47 @@ from unittest.mock import patch
 from io import StringIO
 from game import Game
 
+
 class TestGame(unittest.TestCase):
 
     def setUp(self):
         self.game = Game()
 
     def test_add_player(self):
-        '''Test method to verify if a player is added to the game'''
+        """Test method to verify if a player is added to the game"""
         self.game.add_player("Messi")
         self.assertEqual(len(self.game.players), 1)
 
     def test_add_computer(self):
-        '''Test method to verify if a computer player is added to the game'''
+        """Test method to verify if a computer player is added to the game"""
         self.game.add_computer("Easy")
         self.assertEqual(len(self.game.players), 1)
 
     def test_reset_game(self):
-        '''Test method to verify if the game state is correctly reset'''
+        """Test method to verify if the game state is correctly reset"""
         self.game.add_player("Ronaldo")
         self.game.reset_game()
         self.assertEqual(len(self.game.players), 0)
 
     # Mocking user input of rolling one dice
-    @patch('builtins.input', return_value=1)
+    @patch("builtins.input", return_value=1)
     def test_get_num_dice_human_player(self, mock_input):
-        '''Test method to verify if the number of dice is correctly
-         obtained for a human player'''
+        """Test method to verify if the number of dice is correctly
+        obtained for a human player"""
         self.game.add_player("Saka")
         num_dice = self.game.get_num_dice(self.game.players[0])
         self.assertEqual(num_dice, 1)
 
     def test_get_num_dice_computer_player(self):
-        '''Test method to verify if the number of dice is correctly
-        obtained for a computer player'''
+        """Test method to verify if the number of dice is correctly
+        obtained for a computer player"""
         self.game.add_computer("Easy")
         num_dice = self.game.get_num_dice(self.game.players[0])
-        #Computer can roll between 1 to 6 dice
+        # Computer can roll between 1 to 6 dice
         self.assertTrue(1 <= num_dice <= 6)
 
     def test_get_winner(self):
-        '''Test method to verify if the winner is correctly determined'''
+        """Test method to verify if the winner is correctly determined"""
         self.game.add_player("Ronaldo")
         self.game.players[0].score = 50
         self.game.add_player("Messi")
@@ -85,12 +86,12 @@ class TestGame(unittest.TestCase):
         self.assertEqual(self.game.scoreboard.games_played.get("Jesus"), 0) """
 
     def test_display_scores(self):
-        '''Test method to verify if the scores are displayed correctly'''
+        """Test method to verify if the scores are displayed correctly"""
         self.game.add_player("Mo")
         self.game.players[0].score = 50
         # Ensure method executes without errors
         self.game.display_scores()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

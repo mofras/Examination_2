@@ -1,21 +1,23 @@
-'''Module for the menu'''
+"""Module for the menu"""
 
 
 class Menu:
-    '''
+    """
     Class representing a menu for the game.
 
     This class provides methods to display different menus in the game.
-    '''
+    """
+
     def __init__(self):
         pass
 
     def display_menu(self):
-        '''
+        """
         Display the main menu of the game.
-        '''
+        """
 
-        print('''
+        print(
+            """
                 **************************
                 |          Manu          |
                 |                        |
@@ -26,14 +28,16 @@ class Menu:
                 |  5. Quit               |
                 |                        |
                 **************************
-            ''')
+            """
+        )
 
     def display_game_menu(self):
-        '''
+        """
         Display the menu for choosing a game mode.
-        '''
+        """
 
-        print('''
+        print(
+            """
                 **************************
                 |      Choose a game     |
                 |                        |
@@ -42,14 +46,16 @@ class Menu:
                 |                        |
                 |  3. Back to menu       |
                 **************************
-            ''')
+            """
+        )
 
     def display_game_level(self):
-        '''
+        """
         Display the menu for choosing the difficulty level of the game.
-        '''
+        """
 
-        print('''
+        print(
+            """
                 **************************
                 |      Choose a level    |
                 |                        |
@@ -58,7 +64,9 @@ class Menu:
                 |  3. Hard               |
                 |                        |
                 **************************
-            ''')
+            """
+        )
+
     def print_warning(self, text):
         """
         Print a warning message in red text.
