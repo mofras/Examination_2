@@ -95,8 +95,5 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), expected_output)
 
 
-
-
-
 if __name__ == '__main__':
     unittest.main()
