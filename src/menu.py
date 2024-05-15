@@ -40,6 +40,7 @@ class Menu:
                 |  1. Player vs Player   |
                 |  2. Player vs Computer |
                 |                        |
+                |  3. Back to menu       |
                 **************************
             ''')
 

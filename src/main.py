@@ -63,6 +63,8 @@ def main():
                             game.announce_winner(winner, max_score)
                             game.reset_game()
                             break
+                elif choice == "3":
+                    break
                 else:
                     menu.print_warning("Invalid choice. Please choose 1 or 2.")
                     continue
