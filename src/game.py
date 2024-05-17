@@ -82,9 +82,9 @@ class Game:
                     break
                 roll_sum += roll
             if roll_sum > 1:  # only add if the roll_sum is greater than 0.
-                print(f"{player.name}'s current score: {player.score + roll_sum}")
                 player.add_score(roll_sum)
                 self.scoreboard.add_score(player, roll_sum)
+                print(f"{player.name}'s current score: {player.score}")
             if player.score >= self.target_score:
                 game_completed = True
 
@@ -215,16 +215,3 @@ class Game:
                 break
         else:
             print("There are no players to change their name.")
-
-        # def get_player_names(self, players):
-        """
-        Function to get a list of player names
-
-        Args:
-            players (list): A list of Player objects.
-
-        Returns:
-            list: A list of player names.
-        """
-
-        # return [player.name for player in self.players]
