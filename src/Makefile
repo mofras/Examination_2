@@ -124,6 +124,11 @@ pyreverse:
 
 doc: pdoc pyreverse #pydoc sphinx
 
+sphinx:
+	@$(call MESSAGE,$@)
+	$(MAKE) -C docs html
+
+doc: pdoc pyreverse sphinx
 
 # ---------------------------------------------------------
 # Calculate software metrics for your project.
