@@ -34,7 +34,8 @@ class Scoreboard:
         Increment the number of games played for a player.
 
         Args:
-            player (Player): The player whose games played count is being incremented.
+            player (Player): The player whose games played
+            count is being incremented.
         """
 
         if player.name not in self.games_played:

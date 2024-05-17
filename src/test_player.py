@@ -12,7 +12,8 @@ class TestPlayer(unittest.TestCase):
         self.player = Player("Messi")
 
     def test_roll_dice(self):
-        """Test method to verify if roll_dice() returns a valid dice roll result"""
+        """Test method to verify if roll_dice() returns
+        a valid dice roll result"""
         dice = Dice()
         roll_result = self.player.roll_dice(dice)
         # Assert that the roll result is within the valid range

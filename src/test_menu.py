@@ -30,7 +30,9 @@ class TestMenu(unittest.TestCase):
                 |                        |
                 **************************
             """
-        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
+        self.assertEqual(
+            captured_output.getvalue().strip(),
+            expected_output.strip())
 
     def test_display_game_menu(self):
         """Test method to verify if display_game_menu() prints"""
@@ -48,7 +50,9 @@ class TestMenu(unittest.TestCase):
                 |  3. Back to menu       |
                 **************************
             """
-        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
+        self.assertEqual(
+            captured_output.getvalue().strip(),
+            expected_output.strip())
 
     def test_display_game_level(self):
         """Test method to verify if display_game_level() prints"""
@@ -66,7 +70,9 @@ class TestMenu(unittest.TestCase):
                 |                        |
                 **************************
             """
-        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
+        self.assertEqual(
+            captured_output.getvalue().strip(),
+            expected_output.strip())
 
     def test_print_warning(self):
         """est method to verify if print_warning() prints"""

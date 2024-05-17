@@ -1,5 +1,4 @@
 """Module for the dice"""
-
 import random
 
 
@@ -15,7 +14,8 @@ class Dice:
         Initialize a Dice object with a specified number of sides.
 
         Args:
-            num_sides (int, optional): The number of sides on the dice. Defaults to 6.
+            num_sides (int, optional): The number of sides on the dice.
+            Defaults to 6.
         """
 
         self.num_sides = num_sides
@@ -25,7 +25,8 @@ class Dice:
         Simulate rolling the dice.
 
         Returns:
-            int: The result of rolling the dice, a random integer between 1 and the number of sides.
+            int: The result of rolling the dice,
+            a random integer between 1 and the number of sides.
         """
 
         return random.randint(1, self.num_sides)

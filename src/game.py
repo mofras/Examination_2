@@ -1,25 +1,27 @@
 """Module for the game"""
-
+import time
 from dice import Dice
 from player import Player
 from computer import Computer
 from scoreboard import Scoreboard
 from menu import Menu
-import time
+
 
 
 class Game:
     """
     Class to manage the gameplay of the Dice Hog game.
 
-    This class handles various aspects of the game, including adding players, playing rounds, determining winners, etc.
+    This class handles various aspects of the game,
+    including adding players, playing rounds, determining winners, etc.
     """
 
     def __init__(self):
         """
         Initialize the Game object.
 
-        Initializes the list of players, dice object, scoreboard, and target score.
+        Initializes the list of players, dice object,
+        scoreboard, and target score.
         """
 
         self.players = []
@@ -27,7 +29,6 @@ class Game:
         self.scoreboard = Scoreboard()
         self.menu = Menu()
         self.target_score = 20
-        # self.game_ongoing = False
 
     def add_player(self, name):
         """
@@ -82,9 +83,9 @@ class Game:
                     break
                 roll_sum += roll
             if roll_sum > 1:  # only add if the roll_sum is greater than 0.
+                print(f"{player.name}'s current score: {player.score + roll_sum}")
                 player.add_score(roll_sum)
                 self.scoreboard.add_score(player, roll_sum)
-                print(f"{player.name}'s current score: {player.score}")
             if player.score >= self.target_score:
                 game_completed = True
 
@@ -98,11 +99,13 @@ class Game:
         Get the number of dice to roll for a player's turn.
 
         Args:
-            player (Player): The player for whom the number of dice needs to be determined.
+            player (Player): The player for whom the number
+            of dice needs to be determined.
 
         Returns:
             int: The number of dice to roll.
         """
+
 
         if isinstance(player, Computer):
             time.sleep(3)  # Wait for 3 seconds for dramatic effect

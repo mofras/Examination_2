@@ -31,7 +31,8 @@ class TestScoreboard(unittest.TestCase):
         initial_games_played = 0
         expected_games_played = initial_games_played + 1
         self.scoreboard.incr_games_played(player)
-        # Assert that the player's games played count matches the expected count
+        # Assert that the player's games played count matches
+        # the expected count
         self.assertEqual(
             self.scoreboard.games_played[player.name], expected_games_played
         )

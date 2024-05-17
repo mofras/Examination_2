@@ -32,7 +32,8 @@ class Computer(Player):
             dice (Dice): The dice object used for rolling.
 
         Returns:
-            int: The result of rolling the dice based on the computer's AI logic.
+            int: The result of rolling the dice based on
+            the computer's AI logic.
         """
 
         if self.difficulty == "Easy":

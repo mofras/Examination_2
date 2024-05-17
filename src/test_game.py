@@ -2,10 +2,8 @@
 
 import unittest
 from unittest.mock import patch, MagicMock
-import sys
 from io import StringIO
 from game import Game
-from scoreboard import Scoreboard
 from player import Player
 
 
@@ -14,10 +12,8 @@ class TestGame(unittest.TestCase):
 
     def setUp(self):
         """Create an instance of the Rules class"""
-        #self.maxDiff = None
         self.game = Game()
         self.game.menu = MagicMock()
-
 
     def test_add_player(self):
         """Test method to verify if a player is added to the game"""
@@ -36,18 +32,18 @@ class TestGame(unittest.TestCase):
         self.assertEqual(len(self.game.players), 0)
 
     def test_play_round(self):
-        # Prepare test players
+        """Test method for play round"""
         player1 = Player("Alice")
         player2 = Player("Bob")
         self.game.add_player(player1)
         self.game.add_player(player2)
-
 
     # Mocking user input of rolling one dice
     @patch("builtins.input", return_value=1)
     def test_get_num_dice_human_player(self, mock_input):
         """Test method to verify if the number of dice is correctly
         obtained for a human player"""
+
         self.game.add_player("Saka")
         num_dice = self.game.get_num_dice(self.game.players[0])
         self.assertEqual(num_dice, 1)
@@ -70,12 +66,11 @@ class TestGame(unittest.TestCase):
         self.assertEqual(winner, ["Messi"])
         self.assertEqual(max_score, 100)
 
-
     @patch('sys.stdout', new_callable=StringIO)
-    def test_announce_winner_single_winner(self, mock_stdout):
+    def test_announce_winner_winner(self, mock_stdout):
+        """Test method for winner"""
         winner = ["Player1"]
         max_score = 100
-
         self.game.announce_winner(winner, max_score)
 
         expected_output = (
@@ -86,14 +81,13 @@ class TestGame(unittest.TestCase):
         )
         self.assertEqual(mock_stdout.getvalue(), expected_output)
 
-
     @patch('builtins.input', side_effect=["1", "NewName"])
     @patch('sys.stdout', new_callable=StringIO)
     def test_change_name(self, mock_stdout, mock_input):
+        """Test method for changin name"""
         self.game.players = ["Player1"]
         self.game.scoreboard.scores = {"Player1": 10}
         self.game.scoreboard.games_played = {"Player1": 5}
-
         self.game.change_name(self.game.players, self.game.scoreboard)
 
         expected_output = (
@@ -113,6 +107,7 @@ class TestGame(unittest.TestCase):
     @patch('builtins.input', side_effect=["2", "NewName", "1", "NewName"])
     @patch('sys.stdout', new_callable=StringIO)
     def test_change_name_invalid_choice(self, mock_stdout, mock_input):
+        """Test method for changing name(invalid choice)"""
         self.game.players = ["Player1"]
         self.game.scoreboard.scores = {"Player1": 10}
         self.game.scoreboard.games_played = {"Player1": 5}
@@ -131,6 +126,7 @@ class TestGame(unittest.TestCase):
     @patch('builtins.input', side_effect=["1", "Player1"])
     @patch('sys.stdout', new_callable=StringIO)
     def test_change_name_duplicate_name(self, mock_stdout, mock_input):
+        """Test method for changing to similar name"""
         self.game.players = ["Player1"]
         self.game.scoreboard.scores = {"Player1": 10}
         self.game.scoreboard.games_played = {"Player1": 5}
