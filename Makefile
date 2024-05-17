@@ -62,7 +62,8 @@ clean-all: clean clean-doc clean-src
 # Test all the code at once.
 #
 pylint:
-	$(call FOREACH,pylint)
+	@$(call MESSAGE,$@)
+	$(PYTHON) -m pylint *.py
 
 flake8:
 	$(call FOREACH,flake8)
