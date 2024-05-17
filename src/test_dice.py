@@ -1,9 +1,13 @@
+"""Module for testing Dice class"""
+
 import unittest
-from dice import Dice
 import random
+from dice import Dice
+
 
 
 class TestDice(unittest.TestCase):
+    """Testing the class"""
 
     def test_init_default_num_sides(self):
         """Test the initialization of the Dice class
@@ -26,7 +30,8 @@ class TestDice(unittest.TestCase):
         for _ in range(1000):
             result = dice.roll()
             results.add(result)
-        # Assert that at least two different results were obtained (indicating randomness)
+        # Assert that at least two different
+        # results were obtained (indicating randomness)
         self.assertGreater(len(results), 1)
 
     def test_roll_range(self):
@@ -35,7 +40,8 @@ class TestDice(unittest.TestCase):
         dice = Dice(num_sides)
         for _ in range(100):
             result = dice.roll()
-            # Assert that the result is within the valid range of 1 to the number of sides of the dice
+            # Assert that the result is within
+            # the valid range of 1 to the number of sides of the dice
             self.assertTrue(1 <= result <= num_sides)
 
 

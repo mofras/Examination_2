@@ -1,3 +1,4 @@
+"""Module for testing Menu class"""
 import unittest
 import sys
 from io import StringIO
@@ -5,6 +6,7 @@ from menu import Menu
 
 
 class TestMenu(unittest.TestCase):
+    """Testing the class"""
 
     def setUp(self):
         """Create an instance of the Menu class"""

@@ -1,9 +1,12 @@
+"""Module for testing Computer class"""
+
 import unittest
 from computer import Computer
 from dice import Dice
 
 
 class TestComputer(unittest.TestCase):
+    """Testing the class"""
 
     def test_roll_dice_easy(self):
         """Tests the roll range (1-6)with difficulty Easy"""

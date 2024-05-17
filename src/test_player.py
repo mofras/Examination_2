@@ -1,9 +1,11 @@
+"""Module for testing Player class"""
 import unittest
 from player import Player
 from dice import Dice
 
 
 class TestPlayer(unittest.TestCase):
+    """Testing the class"""
 
     def setUp(self):
         """Create an instance of the Player class for each test method"""
@@ -13,8 +15,8 @@ class TestPlayer(unittest.TestCase):
         """Test method to verify if roll_dice() returns a valid dice roll result"""
         dice = Dice()
         roll_result = self.player.roll_dice(dice)
-        """Assert that the roll result is within the valid range
-        (1 to 6 for a standard six-sided die)"""
+        # Assert that the roll result is within the valid range
+        # (1 to 6 for a standard six-sided die)
         self.assertTrue(1 <= roll_result <= 6)
 
     def test_add_score(self):
@@ -48,7 +50,9 @@ class TestPlayer(unittest.TestCase):
         roll result with a custom dice object"""
 
         class CustomDice:
+            """Custome dice class"""
             def roll(self):
+                """Function for rolling dice"""
                 return 3
 
         custom_dice = CustomDice()

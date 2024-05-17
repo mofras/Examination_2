@@ -1,3 +1,5 @@
+"""Module for testing Game class"""
+
 import unittest
 from unittest.mock import patch
 from io import StringIO
@@ -5,8 +7,10 @@ from game import Game
 
 
 class TestGame(unittest.TestCase):
+    """Testing the class"""
 
     def setUp(self):
+        """Create an instance of the Rules class"""
         self.game = Game()
 
     def test_add_player(self):
@@ -27,7 +31,7 @@ class TestGame(unittest.TestCase):
 
     # Mocking user input of rolling one dice
     @patch("builtins.input", return_value=1)
-    def test_get_num_dice_human_player(self, mock_input):
+    def test_get_num_dice_human_player(self):
         """Test method to verify if the number of dice is correctly
         obtained for a human player"""
         self.game.add_player("Saka")

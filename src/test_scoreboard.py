@@ -1,10 +1,13 @@
+"""Module for testing Scoreboard class"""
 import unittest
-from scoreboard import Scoreboard
+import sys
 from io import StringIO
+from scoreboard import Scoreboard
 from player import Player
 
 
 class TestScoreboard(unittest.TestCase):
+    """Testing the class"""
 
     def setUp(self):
         """Create an instance of the Scoreboard class"""
@@ -66,8 +69,6 @@ class TestScoreboard(unittest.TestCase):
         self.scoreboard.incr_games_played(player2)
         # Redirect stdout to a StringIO object to capture printed output
         captured_output = StringIO()
-        import sys
-
         sys.stdout = captured_output
         # Call the display_scores method
         self.scoreboard.display_scores()
