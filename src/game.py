@@ -1,11 +1,10 @@
-"""Module for the game"""
+"""Module for the game."""
 import time
 from dice import Dice
 from player import Player
 from computer import Computer
 from scoreboard import Scoreboard
 from menu import Menu
-
 
 
 class Game:
@@ -23,7 +22,6 @@ class Game:
         Initializes the list of players, dice object,
         scoreboard, and target score.
         """
-
         self.players = []
         self.dice = Dice()
         self.scoreboard = Scoreboard()
@@ -37,7 +35,6 @@ class Game:
         Args:
             name (str): The name of the player to be added.
         """
-
         self.players.append(Player(name))
 
     def add_computer(self, difficulty):
@@ -47,7 +44,6 @@ class Game:
         Args:
             difficulty (str): The difficulty level of the computer player.
         """
-
         self.players.append(Computer(difficulty))
 
     def reset_game(self):
@@ -57,7 +53,6 @@ class Game:
         Returns:
             list: A list of previous players before resetting the game.
         """
-
         previous_players = self.players.copy()
         self.players.clear()
         return previous_players
@@ -69,7 +64,6 @@ class Game:
         Returns:
             bool: True if the game is completed, False otherwise.
         """
-
         game_completed = False
         for player in self.players:
             num_dice = self.get_num_dice(player)
@@ -105,8 +99,6 @@ class Game:
         Returns:
             int: The number of dice to roll.
         """
-
-
         if isinstance(player, Computer):
             time.sleep(3)  # Wait for 3 seconds for dramatic effect
             num_dice = (
@@ -129,10 +121,7 @@ class Game:
         return num_dice
 
     def display_scores(self):
-        """
-        Display the scores of all players.
-        """
-
+        """ Display the scores of all players."""
         self.scoreboard.display_scores()
 
     def get_winner(self):
@@ -142,20 +131,18 @@ class Game:
         Returns:
             tuple: A tuple containing a list of winners and their score.
         """
-
         max_score = max(player.score for player in self.players)
         winner = [player.name for player in self.players if player.score == max_score]
         return winner, max_score
 
     def announce_winner(self, winner, max_score):
         """
-        Function to output the winner
+        Function to output the winner.
 
         Args:
             winner (list): A list of winners' names.
             max_score (int): The maximum score achieved by the winners.
         """
-
         print()
         print(
             """
@@ -169,13 +156,12 @@ class Game:
 
     def change_name(self, players, scoreboard):
         """
-        Function for name changing
+        Function for name changing.
 
         Args:
             players (list): A list of Player objects.
             scoreboard (Scoreboard): The scoreboard object.
         """
-
         if players:  # Check if there are previous players
             print("Select the player whose name you want to change:")
             for i, player_name in enumerate(players, 1):

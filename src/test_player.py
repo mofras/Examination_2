@@ -1,19 +1,19 @@
-"""Module for testing Player class"""
+"""Module for testing Player class."""
 import unittest
 from player import Player
 from dice import Dice
 
 
 class TestPlayer(unittest.TestCase):
-    """Testing the class"""
+    """Testing the class."""
 
     def setUp(self):
-        """Create an instance of the Player class for each test method"""
+        """Create an instance of the Player class for each test method."""
         self.player = Player("Messi")
 
     def test_roll_dice(self):
         """Test method to verify if roll_dice() returns
-        a valid dice roll result"""
+        a valid dice roll result."""
         dice = Dice()
         roll_result = self.player.roll_dice(dice)
         # Assert that the roll result is within the valid range
@@ -22,7 +22,7 @@ class TestPlayer(unittest.TestCase):
 
     def test_add_score(self):
         """Test method to verify if add_score() correctly
-        adds points to the player's score"""
+        adds points to the player's score."""
         initial_score = self.player.score
         added_points = 50
         expected_score = initial_score + added_points
@@ -32,7 +32,7 @@ class TestPlayer(unittest.TestCase):
 
     def test_reset_score(self):
         """Test method to verify if reset_score() correctly
-        resets the player's score to zero"""
+        resets the player's score to zero."""
         self.player.score = 100
         self.player.reset_score()
         # Assert that the player's score is reset to zero
@@ -40,7 +40,7 @@ class TestPlayer(unittest.TestCase):
 
     def test_change_name(self):
         """Test method to verify if change_name() correctly
-        changes the player's name"""
+        changes the player's name."""
         new_name = "Kalle"
         self.player.change_name(new_name)
         # Assert that the player's name matches the new name
@@ -48,12 +48,12 @@ class TestPlayer(unittest.TestCase):
 
     def test_roll_dice_with_custom_dice(self):
         """Test method to verify if roll_dice() returns a valid dice
-        roll result with a custom dice object"""
+        roll result with a custom dice object."""
 
         class CustomDice:
-            """Custome dice class"""
+            """Custome dice class."""
             def roll(self):
-                """Function for rolling dice"""
+                """Function for rolling dice."""
                 return 3
 
         custom_dice = CustomDice()

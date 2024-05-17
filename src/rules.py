@@ -1,4 +1,4 @@
-"""Module for the rules"""
+"""Module for the rules."""
 
 
 class Rules:
@@ -9,7 +9,8 @@ class Rules:
     """
 
     def __init__(self):
-        pass
+        """Initialization of the class"""
+
 
     def display_rules(self):
         """

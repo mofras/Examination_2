@@ -1,4 +1,4 @@
-"""Module for the menu"""
+"""Module for the menu."""
 
 
 class Menu:
@@ -9,13 +9,11 @@ class Menu:
     """
 
     def __init__(self):
-        pass
+        """Initialization of the class."""
+
 
     def display_menu(self):
-        """
-        Display the main menu of the game.
-        """
-
+        """Display the main menu of the game."""
         print(
             """
                 **************************
@@ -32,10 +30,7 @@ class Menu:
         )
 
     def display_game_menu(self):
-        """
-        Display the menu for choosing a game mode.
-        """
-
+        """Display the menu for choosing a game mode."""
         print(
             """
                 **************************
@@ -50,10 +45,7 @@ class Menu:
         )
 
     def display_game_level(self):
-        """
-        Display the menu for choosing the difficulty level of the game.
-        """
-
+        """Display the menu for choosing the difficulty level of the game."""
         print(
             """
                 **************************
@@ -68,8 +60,6 @@ class Menu:
         )
 
     def print_warning(self, text):
-        """
-        Print a warning message in red text.
-        """
+        """Print a warning message in red text."""
         if text:
             print("\033[91m{}\033[00m".format(text))

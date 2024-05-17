@@ -1,4 +1,4 @@
-"""Module for the player"""
+"""Module for the player."""
 
 
 class Player:
@@ -17,7 +17,6 @@ class Player:
         Args:
             name (str): The name of the player.
         """
-
         self.name = name
         self.score = 0
 
@@ -31,7 +30,6 @@ class Player:
         Returns:
             int: The result of rolling the dice.
         """
-
         return dice.roll()
 
     def add_score(self, points):
@@ -41,12 +39,10 @@ class Player:
         Args:
             points (int): The points to be added to the player's score.
         """
-
         self.score += points
 
     def reset_score(self):
         """Reset the player's score to zero."""
-
         self.score = 0
 
     def change_name(self, new_name):
@@ -56,5 +52,4 @@ class Player:
         Args:
             new_name (str): The new name for the player.
         """
-
         self.name = new_name

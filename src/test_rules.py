@@ -1,4 +1,4 @@
-"""Module for testing Rules class"""
+"""Module for testing Rules class."""
 
 import unittest
 from io import StringIO
@@ -6,14 +6,14 @@ from rules import Rules
 
 
 class TestRules(unittest.TestCase):
-    """Testing the class"""
+    """Testing the class."""
+
     def setUp(self):
-        """Create an instance of the Rules class"""
+        """Create an instance of the Rules class."""
         self.rules = Rules()
 
     def test_display_rules(self):
-        """Tests the output of Rules class"""
-
+        """Tests the output of Rules class."""
         # Create a StringIO object to capture printed output
         captured_output = StringIO()
         expected_output = """

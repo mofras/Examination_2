@@ -1,4 +1,4 @@
-"""Module for testing Scoreboard class"""
+"""Module for testing Scoreboard class."""
 import unittest
 import sys
 from io import StringIO
@@ -7,15 +7,15 @@ from player import Player
 
 
 class TestScoreboard(unittest.TestCase):
-    """Testing the class"""
+    """Testing the class."""
 
     def setUp(self):
-        """Create an instance of the Scoreboard class"""
+        """Create an instance of the Scoreboard class."""
         self.scoreboard = Scoreboard()
 
     def test_add_score(self):
         """Test method to verify if add_score() correctly adds
-        a score to a player's total score"""
+        a score to a player's total score."""
         player = Player("Test Player")
         initial_score = 0
         added_score = 50
@@ -26,7 +26,7 @@ class TestScoreboard(unittest.TestCase):
 
     def test_incr_games_played(self):
         """Test method to verify if incr_games_played() correctly
-        increments the games played count for a player"""
+        increments the games played count for a player."""
         player = Player("Test Player")
         initial_games_played = 0
         expected_games_played = initial_games_played + 1
@@ -39,7 +39,7 @@ class TestScoreboard(unittest.TestCase):
 
     def test_add_score_multiple_players(self):
         """Test method to verify if add_score() correctly
-        adds scores for multiple players"""
+        adds scores for multiple players."""
         player1 = Player("Player 1")
         player2 = Player("Player 2")
         self.scoreboard.add_score(player1, 100)
@@ -50,7 +50,7 @@ class TestScoreboard(unittest.TestCase):
 
     def test_incr_games_played_multiple_players(self):
         """Test method to verify if incr_games_played() correctly
-        increments games played for multiple players"""
+        increments games played for multiple players."""
         player1 = Player("Player 1")
         player2 = Player("Player 2")
         self.scoreboard.incr_games_played(player1)
@@ -61,7 +61,7 @@ class TestScoreboard(unittest.TestCase):
 
     def test_display_scores(self):
         """Test method to verify if display_scores()
-        prints the scoreboard correctly"""
+        prints the scoreboard correctly."""
         player1 = Player("Player 1")
         player2 = Player("Player 2")
         self.scoreboard.add_score(player1, 100)
