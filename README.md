@@ -21,7 +21,17 @@ Clone the repository:
 Start the program:
 - cd src main.py
 
+Test the code:
+- python  -m unittest discover
+- make coverage
 
+Test the linters:
+- python  -m pylint *.py
+- make flake8
+
+Generate documentaion and uml:
+- make pdoc
+- make pyreverse
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
