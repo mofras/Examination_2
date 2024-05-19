@@ -1,22 +1,25 @@
 """Module for testing Dice class."""
-
+# pylint: disable=E0401
 import unittest
 from dice import Dice
-
 
 
 class TestDice(unittest.TestCase):
     """Testing the class."""
 
     def test_init_default_num_sides(self):
-        """Test the initialization of the Dice class
-        with the default number of sides."""
+        """
+        Test the initialization of the Dice class
+        with the default number of sides
+        """
         dice = Dice()
         self.assertEqual(dice.num_sides, 6)
 
     def test_init_custom_num_sides(self):
-        """Test the initialization of the Dice class
-        with a custom number of sides."""
+        """
+        Test the initialization of the Dice class
+        with a custom number of sides.
+        """
         num_sides = 8
         dice = Dice(num_sides)
         self.assertEqual(dice.num_sides, num_sides)

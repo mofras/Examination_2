@@ -1,5 +1,5 @@
 """Module for the rules."""
-
+# pylint: disable=E0401
 
 class Rules:
     """
@@ -9,8 +9,7 @@ class Rules:
     """
 
     def __init__(self):
-        """Initialization of the class"""
-
+        """Initialization of the class."""
 
     def display_rules(self):
         """

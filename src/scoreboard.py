@@ -1,5 +1,5 @@
 """Module for the scoreboard."""
-
+# pylint: disable=E0401
 
 class Scoreboard:
     """

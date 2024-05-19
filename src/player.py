@@ -1,8 +1,8 @@
 """Module for the player."""
-
+# pylint: disable=E0401
 
 class Player:
-    """'
+    """
     Class representing a player in the Dice Hog game.
 
     This class manages player attributes such as name and

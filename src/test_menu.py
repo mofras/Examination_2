@@ -1,4 +1,5 @@
 """Module for testing Menu class."""
+# pylint: disable=E0401
 import unittest
 import sys
 from io import StringIO
@@ -30,9 +31,7 @@ class TestMenu(unittest.TestCase):
                 |                        |
                 **************************
             """
-        self.assertEqual(
-            captured_output.getvalue().strip(),
-            expected_output.strip())
+        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
     def test_display_game_menu(self):
         """Test method to verify if display_game_menu() prints."""
@@ -50,9 +49,7 @@ class TestMenu(unittest.TestCase):
                 |  3. Back to menu       |
                 **************************
             """
-        self.assertEqual(
-            captured_output.getvalue().strip(),
-            expected_output.strip())
+        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
     def test_display_game_level(self):
         """Test method to verify if display_game_level() prints."""
@@ -70,9 +67,7 @@ class TestMenu(unittest.TestCase):
                 |                        |
                 **************************
             """
-        self.assertEqual(
-            captured_output.getvalue().strip(),
-            expected_output.strip())
+        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
     def test_print_warning(self):
         """Test method to verify if print_warning() prints."""
@@ -84,8 +79,10 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), expected_output)
 
     def test_print_warning_not_called(self):
-        """Test method to verify if print_warning() does not print,
-        anything when called with an empty string."""
+        """
+        Test method to verify if print_warning() does not print,
+        anything when called with an empty string.
+        """
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.print_warning("")
@@ -93,8 +90,10 @@ class TestMenu(unittest.TestCase):
         self.assertEqual(captured_output.getvalue().strip(), "")
 
     def test_print_warning_multiple_calls(self):
-        """Test method to verify if print_warning() prints multiple,
-        warning messages correctly."""
+        """
+        Test method to verify if print_warning() prints multiple,
+        warning messages correctly.
+        """
         captured_output = StringIO()
         sys.stdout = captured_output
         self.menu.print_warning("Test warning")

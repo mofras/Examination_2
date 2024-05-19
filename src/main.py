@@ -1,5 +1,5 @@
 """Moddule for the main function."""
-
+# pylint: disable=E0401
 from menu import Menu
 from game import Game
 from rules import Rules

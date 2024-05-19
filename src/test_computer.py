@@ -1,5 +1,5 @@
 """Module for testing Computer class."""
-
+# pylint: disable=E0401
 import unittest
 from computer import Computer
 from dice import Dice
@@ -33,19 +33,28 @@ class TestComputer(unittest.TestCase):
         self.assertLessEqual(rolled_value, 6)
 
     def test_init_easy(self):
-        """Tests Initialization of the Computer object with difficulty Easy."""
+        """
+        Tests Initialization of the Computer object
+        with difficulty Easy.
+        """
         computer = Computer("Easy")
         self.assertEqual(computer.name, "Computer")
         self.assertEqual(computer.difficulty, "Easy")
 
     def test_init_medium(self):
-        """Tests Initialization of the Computer object with difficulty Medium."""
+        """
+        Tests Initialization of the Computer object
+        with difficulty Medium.
+        """
         computer = Computer("Medium")
         self.assertEqual(computer.name, "Computer")
         self.assertEqual(computer.difficulty, "Medium")
 
     def test_init_hard(self):
-        """Tests Initialization of the Computer object with difficulty Hard."""
+        """
+        Tests Initialization of the Computer object
+        with difficulty Hard.
+        """
         computer = Computer("Hard")
         self.assertEqual(computer.name, "Computer")
         self.assertEqual(computer.difficulty, "Hard")

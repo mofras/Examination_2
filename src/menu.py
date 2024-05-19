@@ -1,5 +1,5 @@
 """Module for the menu."""
-
+# pylint: disable=E0401
 
 class Menu:
     """
@@ -10,7 +10,6 @@ class Menu:
 
     def __init__(self):
         """Initialization of the class."""
-
 
     def display_menu(self):
         """Display the main menu of the game."""

@@ -1,5 +1,5 @@
 """Module for testing Rules class."""
-
+# pylint: disable=E0401
 import unittest
 from io import StringIO
 from rules import Rules
@@ -66,9 +66,7 @@ class TestRules(unittest.TestCase):
             self.rules.display_rules()
 
         # Compare the captured output with the expected output
-        self.assertEqual(
-            captured_output.getvalue().strip(),
-            expected_output.strip())
+        self.assertEqual(captured_output.getvalue().strip(), expected_output.strip())
 
 
 if __name__ == "__main__":

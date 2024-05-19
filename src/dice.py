@@ -1,4 +1,5 @@
 """Module for the dice."""
+# pylint: disable=E0401
 import random
 
 

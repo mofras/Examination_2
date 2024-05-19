@@ -1,5 +1,5 @@
-"""Module for the Computer"""
-
+"""Module for the Computer."""
+# pylint: disable=E0401
 from random import choice
 from player import Player
 
@@ -20,7 +20,6 @@ class Computer(Player):
             difficulty (str): The difficulty level of the computer player.
                 Can be one of 'Easy', 'Medium', or 'Hard'.
         """
-
         super().__init__("Computer")
         self.difficulty = difficulty
 
@@ -35,7 +34,6 @@ class Computer(Player):
             int: The result of rolling the dice based on
             the computer's AI logic.
         """
-
         if self.difficulty == "Easy":
             return dice.roll()
         elif self.difficulty == "Medium":

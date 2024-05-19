@@ -1,4 +1,5 @@
 """Module for the game."""
+# pylint: disable=E0401
 import time
 from dice import Dice
 from player import Player
@@ -121,7 +122,7 @@ class Game:
         return num_dice
 
     def display_scores(self):
-        """ Display the scores of all players."""
+        """Display the scores of all players."""
         self.scoreboard.display_scores()
 
     def get_winner(self):
