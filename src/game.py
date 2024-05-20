@@ -27,7 +27,7 @@ class Game:
         self.dice = Dice()
         self.scoreboard = Scoreboard()
         self.menu = Menu()
-        self.target_score = 20
+        self.target_score = 50
 
     def add_player(self, name):
         """
@@ -73,12 +73,16 @@ class Game:
                 roll = self.dice.roll()
                 print(f"{player.name} rolled: {roll}")
                 if roll == 1:
-                    print(f"{player.name} rolled a 1. Turn ends with 0 points.")
+                    print(
+                        f"{player.name} rolled a 1. Turn ends with 0 points."
+                        )
                     roll_sum = 0
                     break
                 roll_sum += roll
             if roll_sum > 1:  # only add if the roll_sum is greater than 0.
-                print(f"{player.name}'s current score: {player.score + roll_sum}")
+                print(
+                    f"{player.name}'s current score: {player.score + roll_sum}"
+                    )
                 player.add_score(roll_sum)
                 self.scoreboard.add_score(player, roll_sum)
             if player.score >= self.target_score:
@@ -111,7 +115,9 @@ class Game:
             while True:
                 try:
                     num_dice = int(
-                        input(f"{player.name}, how many dice do you want to roll? ")
+                        input(
+                            f"{player.name}, how many dice do you want to roll? "
+                            )
                     )
                     if num_dice < 1:
                         print("Please enter a positive number.")
@@ -151,7 +157,8 @@ class Game:
         )
         print(
             f"""
-        🎉🎉🎉 The winner is {', '.join(winner)} with a score of {max_score}! 🎉🎉🎉"""
+        🎉🎉🎉 The winner is {', '.join(winner)} with a score of {max_score}! 🎉🎉🎉
+            """
         )
         print()
 
@@ -180,7 +187,9 @@ class Game:
                         if new_name == old_name:
                             self.menu.print_warning("Name alread exist")
                         else:
-                            print(f"{old_name}'s name has been changed to {new_name}")
+                            print(
+                                f"{old_name}'s name has been changed to {new_name}"
+                                )
                             for name, score in self.scoreboard.scores.items():
                                 if name == old_name:
                                     self.scoreboard.scores[new_name] = score

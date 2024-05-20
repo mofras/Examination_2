@@ -1,5 +1,6 @@
 """Module for testing Game class."""
 # pylint: disable=E0401
+# pylint: disable=W0613
 import unittest
 from unittest.mock import patch, MagicMock
 from io import StringIO

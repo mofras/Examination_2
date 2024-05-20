@@ -1,6 +1,7 @@
 """Module for the menu."""
 # pylint: disable=E0401
 
+
 class Menu:
     """
     Class representing a menu for the game.

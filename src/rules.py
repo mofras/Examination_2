@@ -1,6 +1,7 @@
 """Module for the rules."""
 # pylint: disable=E0401
 
+
 class Rules:
     """
     Class to define the rules of the Dice Hog game.
