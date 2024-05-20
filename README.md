@@ -15,8 +15,8 @@ In this Python project, I've implemented a version of the Hog game using classes
 ## Installation
 
 Clone the repository:
-- git clone:
-    https://github.com/isander94/MentalHealthTracker.git
+
+    git clone: <https://github.com/isander94/MentalHealthTracker.git>
 
 Start the program:
 - cd src main.py
